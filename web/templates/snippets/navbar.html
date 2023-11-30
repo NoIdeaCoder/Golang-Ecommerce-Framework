@@ -1,0 +1,61 @@
+<style>
+nav {
+    padding:0.5rem 1rem 0 1rem;
+    display: flex;
+    background-color:#fff;
+    justify-content: space-between;
+    color:#000; 
+    align-items: center;
+    position:sticky;
+top:0;
+    font-family: 'PP Neue Montreal', sans-serif;
+}
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+nav ul li{
+    margin:20px;
+}
+nav div.logo p{
+    font-size:25px;
+    font-weight:500;
+}
+nav div{
+    color:#000;
+    text-decoration:none;
+    font-weight:500 ;
+    font-size: 20px ; 
+}
+   @media (max-width: 500px) {
+        nav div{
+            font-size:15px;        
+        }
+        nav div.logo p {
+            font-size:20px;
+        }
+    }
+   @media (max-width: 450px) {
+        nav div{
+            font-size:15px;        
+        }   
+        nav ul li{
+        margin:10px;
+    }
+        nav div.logo p {
+            font-size:20px;
+        }
+    }
+
+</style>
+<nav>
+  <ul>
+        <li><div class = "logo"><p>Saniama</p></div></li>
+  </ul>
+  <ul>
+    <li><div class = "about" >About</div></li>
+    <li><div class ="contact">Contact</div></li>
+    <li><div class = "profile" hx-get = "/snippets/cart" hx-trigger = "click" hx-target = ".content" hx-swap = "outerHTML"><i class="fa-regular fa-user"></i></div></li>
+  </ul>
+</nav>
+

@@ -1,0 +1,151 @@
+{% extends "snippets/base.html" %}
+
+{% block title %} 
+    Home Page
+{% endblock %}
+{% block links %}
+{% endblock %}
+{% block header %} 
+    {% include "snippets/navbar.html" %}
+{% endblock %}
+{% block content %}
+<style>
+@import url('https://fonts.cdnfonts.com/css/alte-haas-grotesk');
+.content{
+    display:grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    height:200vh;
+    width:100vw;
+
+}
+
+.featured {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    grid-column: 1/-1;
+    grid-row: span 4;
+    margin: 40px;
+    color: #fff;
+}
+
+.featured::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('http://0.0.0.0:8080/static/images/sec1-featured.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 40%;
+    filter:brightness(0.7); /* Adjust the blur value as needed */
+    z-index: -1;
+}
+.go{
+    height: 45px;
+    border-radius:10px;
+    border:2px solid black;
+    font-family: 'PP Neue Montreal', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    margin:20px;
+    width: 30%;
+    text-align: center;
+    line-height: 10px; /* Center the text vertically */
+    cursor: pointer;
+    background-color:#fff;
+    color:#000;
+
+}
+
+@media (max-width: 768px) {
+    .featured::before {
+        background-position: center 30%; /* Adjust for smaller screens */
+    }
+    .featured{
+        grid-row:span 3;
+        margin:10px; 
+
+    }
+}
+
+@media (max-width: 600px) {
+    .featured::before {
+        background-position: center 30%; /* Adjust for smaller screens */
+    }
+    .featured{
+        grid-row:span 3;
+        margin:0px;
+    }
+}
+@media (max-width: 1000px) {
+    .featured::before {
+        background-position: center 30%; /* Adjust for smaller screens */
+    }
+    .featured{
+        grid-row:span 3;
+        margin:0px;
+    }
+}
+
+
+.tagline {
+    text-align: center;
+    top: 30%;
+    position: relative;
+    .heading {
+        font-size: 70px;
+        font-family: 'Alte Haas Grotesk', sans-serif;
+        text-transform: uppercase;
+    }
+    .sub{
+        font-family: 'Alte Haas Grotesk', sans-serif;
+        text-transform: uppercase;
+    }
+}
+.featured-1{
+    grid-row:span 5;
+    grid-column:1/-1;
+    margin:0px 40px 0px 40px;
+    background:#000;
+
+}
+</style>
+<!--<div class = "things">
+   <div class="getSpecificproduct" >
+       <h1>GET Specific Product</h1>
+   </div> 
+   </div>-->
+<div class="content">
+    <section class = "featured">
+        <div class="tagline">
+            <h2 class = "heading" >From The Women Of Nepal</h2>
+            <h4 class = "sub" > fierce. elegant. empowered. </h4>
+            <button class = "go" hx-get = "/snippets/products" hx-trigger = "click" hx-target = ".content" hx-swap = "outerHTML"> Shop! </button>
+        </div>
+    </section>
+
+    <section class = "featured-1">
+        <div class="products">
+            <div class="product">
+            </div>
+            <div class="product">
+            </div>
+            <div class="product">
+            </div>
+            <div class="product">
+            </div>
+                
+        </div>
+    </section>
+</div>
+{% endblock %}
+{% block  scripts%}
+
+{% endblock %}
+
+

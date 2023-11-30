@@ -1,0 +1,51 @@
+<style>
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    height:100vh;
+    width:100vw;
+    overflow:hidden;
+  }
+
+  .product-card {
+    overflow:hidden;
+    flex: 0 1 calc(33.33% - 20px); /* Adjust the percentage for responsiveness */
+    max-width: 400px;
+    max-height: 500px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+  }
+
+
+</style>
+
+<div class="content">
+  {% for product in products %}
+    <div class="product-card" hx-get="/products/{{product.Name}}" hx-trigger = "click delay:2s" hx-target = ".content" hx-swap = "outerHTML">
+      <img class="product-image" src="/static/images/{{ product.Image }}" alt="{{ product.Name }}">
+    </div>
+  {% endfor %}
+</div>
+<script>
+var productCards = document.querySelectorAll('.product-card');
+
+productCards.forEach(function(card) {
+ card.addEventListener('click', function() {
+ document.querySelector('.content').style.visibility = 'hidden';
+ card.style.visibility = 'visible';
+
+ gsap.to(card, {
+  duration: 1,
+  xPercent:-50,
+  left:"50%",
+  yPercent:-65.796,
+  top:"50%",
+  x:0,
+    y:0,
+  ease: "power1.out",
+ });
+ });
+});
+</script>
+

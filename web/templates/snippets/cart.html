@@ -1,0 +1,12 @@
+<div class="content">
+ {% for cartproduct in cart.Products%}
+ <div>
+   <h2>{{ cartproduct.Name }}</h2>
+   <p>{{ cartproduct.Price}}</p>
+   <p>{{ cartproduct.Quantity}}</p>
+   <h2>{{ cartproduct.Image}}</h2>
+        <img src = "/static/images/{{cartproduct.Image}}" alt = "{{cartproduct.Name}}">
+ </div>
+ {% endfor %}
+</div>
+

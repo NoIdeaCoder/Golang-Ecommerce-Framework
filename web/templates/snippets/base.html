@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %} Default Title {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.7" integrity="sha384-EAzY246d6BpbWR7sQ8+WEm40J8c3dHFsqC58IgPlh4kMbRRI6P6WA+LA/qGAyAu8" crossorigin="anonymous"></script>
+<link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+        {% block links %} {% endblock %}
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            overflow-x:hidden;
+        }
+        body{
+            height:100vh;
+            width:100vw;
+            background-color:#fff;
+        }
+    </style>
+
+</head>
+<body>
+        {% block header %} {% endblock %}
+        {% block content %}{% endblock %}
+        {% block scripts %}{% endblock %}
+</body>
+</html>
+
+

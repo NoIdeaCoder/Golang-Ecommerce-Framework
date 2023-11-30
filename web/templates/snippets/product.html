@@ -1,0 +1,56 @@
+<style>
+  .content {
+    height:100vh;
+    width:100vw;
+}
+.product-card{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.product-description{
+    position:absolute;
+    font-family: 'PP Neue Montreal', sans-serif;
+    font-size:50px;
+    top:50%;
+    right:50%;
+    transform:translate(390%,-600%);
+
+    
+}
+
+
+</style>
+
+<div class="content">
+<div class="product-card" hx-get="/products/Product 1" hx-trigger = "click delay:2s" hx-target = ".content" hx-swap = "outerHTML">
+      <img class="product-image" src="/static/images/{{ product.Image }}" alt="{{ product.Name }}">
+    </div>
+    <div class="product-description">
+        <div class="productname">
+            {{product.Name}} 
+        </div>
+        <div class="productdesc">
+            {{product.description}} 
+        </div>
+    </div>
+</div>
+<script>
+gsap.to(".product-card",
+{
+    scale:1.8,
+    x:-800,
+    duration:1, 
+    ease:"linear.in",
+    onStart: function() {
+           gsap.to(".product-image", {
+               width: "100%",
+               height:"100%",
+               duration:0.8,
+           });
+       }
+})
+
+</script>
+
